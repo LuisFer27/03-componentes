@@ -1,0 +1,71 @@
+<app-header titulo="DateTime"></app-header>
+
+<ion-content>
+<ion-list>
+
+<ion-list-header>
+  <ion-label>Datos de Nacimiento</ion-label>
+</ion-list-header>
+
+<ion-item id="date">
+  <ion-label>Fecha de nacimiento</ion-label>
+  
+  <ion-popover trigger="date" size="cover">
+      <ng-template>
+          <ion-datetime presentation="date" [preferWheel]="true" [value]="fechaNaci.toISOString()" 
+              display-format="DD MM YYYY" doneText="Ok"
+              (ionChange)="cambioFecha($event)">
+          </ion-datetime>
+      </ng-template>
+  </ion-popover>
+</ion-item>
+
+<ion-list-header>
+  <ion-label>Restricciones</ion-label>
+</ion-list-header>
+
+<ion-item id="date-min">
+  <ion-label>Min y Max</ion-label>
+  <ion-popover trigger="date-min" size="cover">
+      <ng-template>
+          <ion-datetime presentation="date" [preferWheel]="true" display-format="DD MM YYYY"
+          min="2015-01-01"
+          max="2025-12-31"
+          doneText="Ok"
+          >
+          </ion-datetime>
+      </ng-template>
+  </ion-popover>
+</ion-item>
+
+
+<ion-item id="years">
+  <ion-label>Años</ion-label>
+  
+  <ion-popover trigger="years" size="cover">
+      <ng-template>
+          <ion-datetime presentation="year" [preferWheel]="true" display-format="YYYY"
+          min="2015"
+          max="2025"
+          doneText="Ok"
+          >
+          </ion-datetime>
+      </ng-template>
+  </ion-popover>
+</ion-item>
+
+<ion-item id="custom">
+  <ion-label>Custom Options</ion-label>
+  
+  <ion-popover trigger="custom" size="cover">
+      <ng-template>
+          <ion-datetime presentation="date"  [preferWheel]="true" display-format="DD MM YYYY">
+          </ion-datetime>
+      </ng-template>
+  </ion-popover>
+</ion-item>
+
+
+
+</ion-list>
+</ion-content>
