@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { InicioPageRoutingModule } from './inicio-routing.module';
+import { InfinitePageRoutingModule } from './infinite-routing.module';
 
-import { InicioPage } from './inicio.page';
+import { InfinitePage } from './infinite.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { ComponentsModule } from 'src/app/components/components.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    InicioPageRoutingModule,
+    InfinitePageRoutingModule,
     ComponentsModule
   ],
-  declarations: [InicioPage]
+  declarations: [InfinitePage]
 })
-export class InicioPageModule {}
+export class InfinitePageModule {}
