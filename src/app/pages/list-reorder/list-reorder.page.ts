@@ -9,6 +9,8 @@ export class ListReorderPage implements OnInit {
 
   personajes: string[] = ['Aqua', 'Darkness', 'Kazuma', 'Megumin', 'Wiz', 'Yunyun'];
 
+  //crear propiedad toggle
+  reorderDisabled = true;
   constructor() { }
 
   ngOnInit() {
