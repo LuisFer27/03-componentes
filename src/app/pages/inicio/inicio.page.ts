@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-interface Componente {
-  icon: string;
-  name: string;
-  redirectTo: string;
-}
+import { MenuController } from '@ionic/angular';
+import { Componente } from 'src/app/interfaces/interfaces';
+import { Observable } from 'rxjs';
+import { DataService } from '../../services/data.service';
+
 
 @Component({
   selector: 'app-inicio',
@@ -11,88 +11,16 @@ interface Componente {
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage implements OnInit {
-  compnentes: Componente[] = [
-  {
-    icon: 'american-football-outline',
-    name: 'Action Sheet',
-    redirectTo: '/action-sheet'
-  },
-  {
-    icon: 'alert-circle-outline',
-    name: 'Alert',
-    redirectTo: '/alert'
-  },
-  {
-    icon: 'beaker-outline',
-    name: 'Avatar',
-    redirectTo: '/avatar'
-  },
-  {
-    icon: 'radio-button-off-outline',
-    name: 'Button',
-    redirectTo: '/button'
-  },
-  {
-    icon: 'card-outline',
-    name: 'Cards',
-    redirectTo: '/card'
-  },
-  {
-    icon: 'checkmark-circle-outline',
-    name: 'Checks',
-    redirectTo: '/check'
-  },
-  {
-    icon: 'calendar-outline',
-    name: 'DateTime',
-    redirectTo: '/date-time'
-  }
-  ,
-  {
-    icon: 'car-outline',
-    name: 'Fab',
-    redirectTo: '/fab'
-  }
-  ,
-  {
-    icon: 'grid-outline',
-    name: 'Grid',
-    redirectTo: '/grid'
-  }
-  ,
-  {
-    icon: 'infinite-outline',
-    name: 'Infinite',
-    redirectTo: '/infinite'
-  }
-  ,
-  {
-    icon: 'hammer-outline',
-    name: 'Input forms',
-    redirectTo: '/input'
-  }
-  ,
-  {
-    icon: 'list-outline',
-    name: 'List-Sliding',
-    redirectTo: '/list'
-  },
-  {
-    icon: 'reorder-three-outline',
-    name: 'List-Reorder',
-    redirectTo: '/list-reorder'
-  },
-  {
-    icon: 'refresh-circle-outline',
-    name: 'Loading',
-    redirectTo: '/loading'
-  }
+componentes: Observable<Componente[]>;
 
-  ];
-
-  constructor() { }
+  constructor(private menuController: MenuController,
+    private dataService: DataService) { }
 
   ngOnInit() {
+    this.componentes=this.dataService.getMenuOpts();
   }
 
+  mostrarMenu(){
+ this.menuController.open('first');
+  }
 }
