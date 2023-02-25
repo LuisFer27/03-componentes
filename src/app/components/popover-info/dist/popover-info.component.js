@@ -9,10 +9,16 @@ exports.__esModule = true;
 exports.PopoverInfoComponent = void 0;
 var core_1 = require("@angular/core");
 var PopoverInfoComponent = /** @class */ (function () {
-    function PopoverInfoComponent() {
-        this.items = Array(40);
+    function PopoverInfoComponent(popoverCtrl) {
+        this.popoverCtrl = popoverCtrl;
+        this.items = Array(7);
     }
     PopoverInfoComponent.prototype.ngOnInit = function () { };
+    PopoverInfoComponent.prototype.onClick = function (valor) {
+        this.popoverCtrl.dismiss({
+            item: valor
+        });
+    };
     PopoverInfoComponent = __decorate([
         core_1.Component({
             selector: 'app-popover-info',
