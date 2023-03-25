@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.DataService = void 0;
 var core_1 = require("@angular/core");
+var operators_1 = require("rxjs/operators");
 var DataService = /** @class */ (function () {
     function DataService(http) {
         this.http = http;
@@ -20,6 +21,10 @@ var DataService = /** @class */ (function () {
     };
     DataService.prototype.getAlbumes = function () {
         return this.http.get('https://jsonplaceholder.typicode.com/albums');
+    };
+    DataService.prototype.getHeroes = function () {
+        return this.http.get('/assets/data/superheroes.json')
+            .pipe(operators_1.delay(1500));
     };
     DataService = __decorate([
         core_1.Injectable({

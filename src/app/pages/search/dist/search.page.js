@@ -11,17 +11,19 @@ var core_1 = require("@angular/core");
 var SearchPage = /** @class */ (function () {
     function SearchPage(dataService) {
         this.dataService = dataService;
+        this.textoBuscar = '';
         this.albumes = [];
     }
     SearchPage.prototype.ngOnInit = function () {
         var _this = this;
         this.dataService.getAlbumes().subscribe(function (albumes) {
-            console.log(albumes);
+            /*console.log(albumes);*/
             _this.albumes = albumes;
         });
     };
     SearchPage.prototype.onSearchChange = function (event) {
-        console.log(event);
+        //console.log(event);
+        this.textoBuscar = event.detail.value;
     };
     SearchPage = __decorate([
         core_1.Component({
